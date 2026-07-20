@@ -1,0 +1,257 @@
+{
+  "admins": [
+    {
+      "uid": "admin-1",
+      "name": "Super Admin Al-Ghuroba",
+      "email": "admin@alghuroba.id",
+      "role": "super_admin",
+      "isActive": true,
+      "photoURL": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+      "lastLogin": "2026-07-19T10:00:00.000Z",
+      "createdAt": "2026-07-19T00:00:00.000Z",
+      "updatedAt": "2026-07-19T10:00:00.000Z"
+    },
+    {
+      "uid": "admin-2",
+      "name": "Ustadz Ahmad",
+      "email": "ahmad@alghuroba.id",
+      "role": "admin",
+      "isActive": true,
+      "photoURL": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=150",
+      "lastLogin": "2026-07-19T09:15:00.000Z",
+      "createdAt": "2026-07-19T01:00:00.000Z",
+      "updatedAt": "2026-07-19T09:15:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Pengumuman",
+      "slug": "pengumuman",
+      "description": "Pengumuman resmi dari pengurus Pondok Pesantren Al-Ghuroba"
+    },
+    {
+      "id": "cat-2",
+      "name": "Pendidikan",
+      "slug": "pendidikan",
+      "description": "Seputar program dan kegiatan belajar mengajar"
+    },
+    {
+      "id": "cat-3",
+      "name": "Dakwah",
+      "slug": "dakwah",
+      "description": "Kajian agama dan syiar dakwah digital"
+    },
+    {
+      "id": "cat-4",
+      "name": "Kegiatan",
+      "slug": "kegiatan",
+      "description": "Dokumentasi kegiatan santri dan pengurus"
+    },
+    {
+      "id": "cat-5",
+      "name": "Prestasi",
+      "slug": "prestasi",
+      "description": "Pencapaian dan prestasi santri Al-Ghuroba"
+    }
+  ],
+  "news": [
+    {
+      "id": "news-1",
+      "title": "Penerimaan Santri Baru (PPDB) Tahun Ajaran 2026/2027 Telah Dibuka",
+      "slug": "penerimaan-santri-baru-ppdb-tahun-ajaran-2026-2027",
+      "excerpt": "Pondok Pesantren Al-Ghuroba resmi membuka pendaftaran santri baru untuk jenjang Tahfidzul Qur'an dan Madrasah Diniyah.",
+      "content": "<p>Alhamdulillah, atas taufiq dan hidayah Allah SWT, <strong>Pondok Pesantren Al-Ghuroba Lirboyo Kediri</strong> kembali membuka pendaftaran bagi calon santri baru putra dan putri untuk Tahun Ajaran 2026/2027.</p><p>Pendaftaran gelombang pertama dimulai sejak tanggal 1 Juli 2026 dan akan berlangsung hingga kuota terpenuhi. Program unggulan kami difokuskan pada Hifzhul Qur'an dengan sanad muttashil serta kajian kitab kuning yang diampu langsung oleh alumni-alumni pesantren salaf terkemuka.</p><h3>Persyaratan Utama:</h3><ul><li>Mengisi formulir pendaftaran daring atau luring.</li><li>Fotokopi kartu keluarga dan ijazah terakhir.</li><li>Surat pernyataan kesanggupan menaati peraturan pesantren.</li><li>Lolos tes seleksi membaca Al-Qur'an dasar dan wawancara motivasi.</li></ul><p>Mari bergabung bersama kami melahirkan generasi penghafal Al-Qur'an (Mutasyarri') yang berakidah kokoh dan berakhlakul karimah di tengah tantangan zaman modern.</p>",
+      "thumbnail": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "categoryId": "cat-1",
+      "authorId": "admin-1",
+      "authorName": "Super Admin",
+      "tags": ["PPDB", "Santri Baru", "Tahfidz"],
+      "published": true,
+      "publishedAt": "2026-07-01T08:00:00.000Z",
+      "createdAt": "2026-07-01T08:00:00.000Z",
+      "updatedAt": "2026-07-01T08:00:00.000Z"
+    },
+    {
+      "id": "news-2",
+      "title": "Kajian Kitab Kuning Rutinan Mingguan Bersama Pengasuh",
+      "slug": "kajian-kitab-kuning-rutinan-mingguan-bersama-pengasuh",
+      "excerpt": "Setiap malam Jumat, para santri putra dan putri antusias mengikuti pengajian Kitab Fathul Qorib yang dibacakan langsung oleh pengasuh.",
+      "content": "<p>Dalam rangka memperkokoh khazanah keilmuan Islam salaf, Pondok Pesantren Al-Ghuroba mengintensifkan program kajian kitab kuning rutin. Setiap malam Jumat selepas shalat Isya berjamaah, para santri berkumpul di aula utama untuk mengikuti pengajian Kitab Fathul Qorib (fiqih syafi'i).</p><p>Kajian diampu langsung oleh Romo KH. Ahmad Habibullah Zaini bersama Ibu Nyai Hj. Ummi Sa'adah. Metode penyampaian menggunakan metode sorogan dan bandongan klasik khas Lirboyo, Kediri, di mana santri memaknai kata per kata (ngabsahi) dan mendengarkan penjelasan syarah hukum secara mendalam.</p><p>\"Tujuan dari ngaji rutin ini adalah agar para santri tidak hanya hafal Al-Qur'an, tetapi juga menguasai hukum-hukum fiqih dasar sebagai bekal beribadah sehari-hari yang sah sesuai tuntunan para ulama salafus shalih,\" dawuh pengasuh dalam sambutannya.</p>",
+      "thumbnail": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800",
+      "categoryId": "cat-2",
+      "authorId": "admin-2",
+      "authorName": "Ustadz Ahmad",
+      "tags": ["Kitab Kuning", "Fiqih", "Sorogan"],
+      "published": true,
+      "publishedAt": "2026-07-15T14:30:00.000Z",
+      "createdAt": "2026-07-15T14:30:00.000Z",
+      "updatedAt": "2026-07-15T14:30:00.000Z"
+    },
+    {
+      "id": "news-3",
+      "title": "Wisuda Tahfidz Juz 30 Perdana Santri Pondok Pesantren Al-Ghuroba",
+      "slug": "wisuda-tahfidz-juz-30-perdana-santri-pondok-pesantren-al-ghuroba",
+      "excerpt": "Sejumlah 25 santri mengikuti prosesi wisuda tahfidz juz 30 dengan khidmat, disaksikan wali santri yang hadir.",
+      "content": "<p>Suasana haru dan khidmat menyelimuti kompleks Pondok Pesantren Al-Ghuroba pada acara Wisuda Tahfidz Juz 30 Perdana. Acara yang digelar di halaman utama pesantren ini dihadiri oleh jajaran dewan penyantun, asatidzah, tokoh masyarakat, serta seluruh wali santri.</p><p>Prosesi wisuda diawali dengan pembacaan hafalan (tasmi') secara massal oleh wisudawan, dilanjutkan dengan penyematan mahkota secara simbolis kepada orang tua masing-masing sebagai lambang penghormatan bagi orang tua penghafal Al-Qur'an di akhirat kelak.</p><p>Ibu Nyai Hj. Ummi Sa'adah menyampaikan apresiasi luar biasa kepada para santri yang tetap istiqamah menghafal di sela-sela kesibukan khidmah dan sekolah. Beliau berharap pencapaian ini menjadi batu loncatan untuk mengkhatamkan 30 juz secara utuh.</p>",
+      "thumbnail": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800",
+      "categoryId": "cat-5",
+      "authorId": "admin-1",
+      "authorName": "Super Admin",
+      "tags": ["Wisuda", "Tahfidz", "Prestasi"],
+      "published": true,
+      "publishedAt": "2026-07-10T10:00:00.000Z",
+      "createdAt": "2026-07-10T10:00:00.000Z",
+      "updatedAt": "2026-07-10T10:00:00.000Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "event-1",
+      "title": "Haflah Akhirussanah & Doa Bersama Wali Santri",
+      "slug": "haflah-akhirussanah-doa-bersama-wali-santri",
+      "description": "Peringatan akhir tahun ajaran, wisuda kelulusan Madrasah Diniyah, serta silaturahmi akbar bersama segenap wali santri Pondok Pesantren Al-Ghuroba.",
+      "location": "Aula Serbaguna PP Al-Ghuroba",
+      "startDate": "2026-08-05T08:00:00.000Z",
+      "endDate": "2026-08-05T13:00:00.000Z",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+      "createdAt": "2026-07-19T12:00:00.000Z"
+    },
+    {
+      "id": "event-2",
+      "title": "Bahtsul Masail Kubro Antar Kamar",
+      "slug": "bahtsul-masail-kubro-antar-kamar",
+      "description": "Forum diskusi ilmiah fiqih untuk membedah problematika hukum Islam kontemporer yang diikuti oleh perwakilan delegasi dari setiap kamar santri putra dan putri.",
+      "location": "Masjid Pondok Pesantren",
+      "startDate": "2026-07-28T19:30:00.000Z",
+      "endDate": "2026-07-28T23:00:00.000Z",
+      "image": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+      "createdAt": "2026-07-19T12:00:00.000Z"
+    }
+  ],
+  "galleries": [
+    {
+      "id": "gal-1",
+      "title": "Aktivitas Pengajian Al-Qur'an Santri Putri",
+      "image": "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800",
+      "category": "Kegiatan",
+      "description": "Santri putri sedang khidmat melakukan tadarus dan menyetorkan hafalan di serambi masjid.",
+      "uploadedBy": "Ustadz Ahmad",
+      "createdAt": "2026-07-19T10:00:00.000Z"
+    },
+    {
+      "id": "gal-2",
+      "title": "Kegiatan Belajar Madrasah Diniyah",
+      "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800",
+      "category": "Dokumentasi",
+      "description": "Suasana pembelajaran tatap muka kajian kitab kuning di ruang kelas.",
+      "uploadedBy": "Ustadz Ahmad",
+      "createdAt": "2026-07-19T10:05:00.000Z"
+    },
+    {
+      "id": "gal-3",
+      "title": "Santri Putra Menghafal Kitab Nadhom",
+      "image": "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?w=800",
+      "category": "Kegiatan",
+      "description": "Para santri putra berkumpul di aula luar menghafalkan bait-bait Kitab Imrithi.",
+      "uploadedBy": "Super Admin",
+      "createdAt": "2026-07-19T10:10:00.000Z"
+    }
+  ],
+  "banners": [
+    {
+      "id": "banner-1",
+      "title": "Pondok Pesantren Al-Ghuroba Lirboyo",
+      "subtitle": "\"Teguh dalam Agama, Mulia dalam Akhlak, Beruntung di Tengah Zaman\"",
+      "image": "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1600",
+      "buttonText": "Pelajari Profil",
+      "buttonLink": "/profil",
+      "order": 1,
+      "isActive": true
+    },
+    {
+      "id": "banner-2",
+      "title": "Penerimaan Santri Baru TA 2026/2027",
+      "subtitle": "Bentuk Generasi Qur'ani dan Tafaqquh Fiddin Bersama Kami.",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600",
+      "buttonText": "Daftar Sekarang (PPDB)",
+      "buttonLink": "/ppdb",
+      "order": 2,
+      "isActive": true
+    }
+  ],
+  "pages": [
+    {
+      "id": "page-profil",
+      "slug": "profil",
+      "title": "Profil Pondok Pesantren Al-Ghuroba",
+      "content": "Pondok Pesantren Al-Ghuroba lahir dari visi besar Romo KH. Ahmad Habibullah Zaini. Berdiri secara resmi pada tahun 2021 di kawasan Lirboyo, Kota Kediri, Jawa Timur, lembaga ini hadir sebagai benteng pertahanan moral di akhir zaman. Nama Al-Ghuroba (yang berarti 'orang-orang asing') diambil dari sabda hadis syarif Rasulullah SAW mengenai golongan orang-orang beruntung yang gigih memegang teguh syariat agama Islam di kala umat manusia rusak.",
+      "updatedAt": "2026-07-19T15:00:00.000Z"
+    },
+    {
+      "id": "page-sejarah",
+      "slug": "sejarah",
+      "title": "Sejarah Singkat Pendirian",
+      "content": "Aktivitas pengajaran di Pondok Pesantren Al-Ghuroba dirintis dari hal yang sangat sederhana. Pada masa rintisan awal, pesantren ini belum memiliki santri dari luar daerah. Kegiatan mengaji mulanya hanya diikuti oleh anak ndalem (keluarga dan asisten rumah tangga) yang berjumlah beberapa orang saja di kediaman Romo KH. Ahmad Habibullah Zaini. Seiring berjalannya waktu, kepercayaan masyarakat kian tumbuh. Hingga pada tahun 2021, dilakukan pendirian formal hukum yayasan pesantren seiring bertambahnya arus santri dari luar Kediri yang ingin menimba sanad ilmu agama langsung di bawah asuhan beliau.",
+      "updatedAt": "2026-07-19T15:00:00.000Z"
+    }
+  ],
+  "settings": {
+    "siteName": "Pondok Pesantren Al-Ghuroba",
+    "slogan": "Teguh dalam Agama, Mulia dalam Akhlak, Beruntung di Tengah Zaman",
+    "email": "pondokpesantrenalghuroba@gmail.com",
+    "phone": "+62 815-6464-0223",
+    "address": "Jl. Kyai Abdul Karim RT 01 RW 01, Kelurahan Lirboyo, Kecamatan Mojoroto, Kota Kediri, Jawa Timur",
+    "maps": "https://maps.google.com/?q=Lirboyo+Kediri",
+    "logo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=150",
+    "favicon": "/favicon.ico",
+    "facebook": "https://facebook.com/ppalghuroba",
+    "instagram": "https://instagram.com/ppalghuroba",
+    "youtube": "https://youtube.com/ppalghuroba"
+  },
+  "contacts": [
+    {
+      "id": "contact-1",
+      "name": "Hendra Wijaya",
+      "email": "hendra@gmail.com",
+      "subject": "Pertanyaan mengenai Seragam Santri",
+      "message": "Assalamu'alaikum, ustadz. Saya calon wali santri asal Semarang, ingin bertanya detail mengenai ukuran dan daftar seragam yang wajib dibeli sebelum masuk asrama pada bulan Agustus nanti. Terima kasih.",
+      "status": "unread",
+      "createdAt": "2026-07-18T10:00:00.000Z"
+    }
+  ],
+  "donations": [
+    {
+      "id": "don-1",
+      "title": "Pembangunan Gedung Asrama Putri Tahap II",
+      "description": "Pembangunan gedung bertingkat untuk asrama santriwati dikarenakan kapasitas asrama saat ini sudah mencapai kapasitas maksimal seiring bertambahnya santri baru secara signifikan.",
+      "bank": "Bank Syariah Indonesia (BSI)",
+      "accountNumber": "715 6464 022",
+      "accountName": "PP AL GHUROBA KEDIRI",
+      "qris": "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=300",
+      "isActive": true
+    },
+    {
+      "id": "don-2",
+      "title": "Operasional Dakwah & Pengadaan Kitab Kuning",
+      "description": "Donasi untuk subsidi silang pengadaan kitab-kitab kuning bagi santri dhuafa dan pemeliharaan sarana belajar mengajar harian di ruang kelas Madrasah Diniyah.",
+      "bank": "Bank Muamalat",
+      "accountNumber": "321 0044 122",
+      "accountName": "YAYASAN AL GHUROBA KEDIRI",
+      "qris": "https://images.unsplash.com/photo-1595079676339-1534801ad6cf?w=300",
+      "isActive": true
+    }
+  ],
+  "logs": [
+    {
+      "id": "log-1",
+      "adminId": "admin-1",
+      "adminName": "Super Admin Al-Ghuroba",
+      "action": "Login",
+      "module": "Authentication",
+      "description": "Login berhasil dari IP ::1",
+      "ip": "::1",
+      "createdAt": "2026-07-19T10:00:00.000Z"
+    }
+  ]
+}

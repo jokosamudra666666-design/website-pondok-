@@ -1,0 +1,6 @@
+{
+  "name": "Website Resmi Pondok Pesantren Al-Ghuroba",
+  "description": "Website Resmi Pondok Pesantren Al-Ghuroba dengan Portal Informasi dan Dashboard Pengelolaan Konten (Admin).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

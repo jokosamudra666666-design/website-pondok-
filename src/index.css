@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-arabic: "Amiri", serif;
+  
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534; /* Hijau Pesantren */
+  --color-primary-900: #14532d;
+  
+  --color-gold-100: #fef9c3;
+  --color-gold-500: #eab308;
+  --color-gold-600: #ca8a04;
+  --color-gold-700: #a16207;
+  --color-gold-800: #854d0e;
+  --color-gold-custom: #D4AF37; /* Emas */
+}
+
+@layer base {
+  body {
+    @apply font-sans text-slate-200 bg-[#0f172a] antialiased min-h-screen relative overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+
+  /* Frosted Glass Custom Utility Class Overrides */
+  
+  /* Overrides for bg-white to frosted glass */
+  .bg-white, .bg-white\/95, .bg-white\/90, .bg-white\/80 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Overrides for soft background panels like bg-gray-50, etc. */
+  .bg-gray-50, .bg-gray-100, .bg-slate-50, .bg-slate-100, .bg-neutral-50, .bg-zinc-50 {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* Overrides for solid dark backgrounds to transparent glass */
+  .bg-gray-900, .bg-slate-900, .bg-gray-950, .bg-slate-950, .bg-neutral-900, .bg-zinc-900 {
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Ensure text colors are optimized for a dark frosted background */
+  .text-gray-900, .text-slate-900, .text-neutral-900, .text-zinc-900, .text-gray-800, .text-slate-800 {
+    color: #ffffff !important;
+  }
+  
+  .text-gray-700, .text-slate-700, .text-neutral-700, .text-zinc-700, .text-gray-600, .text-slate-600, .text-neutral-600 {
+    color: #cbd5e1 !important; /* text-slate-300 */
+  }
+
+  .text-gray-500, .text-slate-500, .text-neutral-500, .text-zinc-500 {
+    color: #94a3b8 !important; /* text-slate-400 */
+  }
+
+  .text-gray-400, .text-slate-400 {
+    color: #94a3b8 !important; /* text-slate-400 */
+  }
+
+  /* Maintain readable headings */
+  h1, h2, h3, h4, h5, h6, .text-xl, .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+
+  /* Custom borders */
+  .border, .border-y, .border-b, .border-t, .border-l, .border-r, .border-gray-100, .border-gray-200, .border-slate-100, .border-slate-200 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* Table styling */
+  table {
+    border-collapse: collapse;
+  }
+
+  table th {
+    color: #94a3b8 !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  table td {
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+  }
+
+  /* Form elements with premium frosted feel */
+  input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="tel"], input[type="url"], input[type="date"],
+  select, textarea {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-radius: 0.75rem !important;
+  }
+
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="date"]:focus,
+  select:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: #D4AF37 !important; /* Gold highlight focus */
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25) !important;
+  }
+
+  /* Options inside select elements */
+  select option {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+  }
+
+  /* Floating and generic shadows */
+  .shadow-xs, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25) !important;
+  }
+
+  /* Beautiful scrollbar for desktop */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
