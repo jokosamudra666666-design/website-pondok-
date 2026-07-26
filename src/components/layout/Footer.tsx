@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube, Heart } from "lucide-react";
 import { useApp } from "../ui/AppContext";
+// @ts-ignore
+import logoImg from "../../assets/images/al_ghuroba_logo_1784517143166.jpg";
 
 export const Footer: React.FC = () => {
   const { settings } = useApp();
@@ -19,9 +21,12 @@ export const Footer: React.FC = () => {
           {/* Kolom 1: Brand & Deskripsi */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md border border-white/10">
-                AG
-              </div>
+              <img 
+                src={settings?.logo || logoImg} 
+                alt={settings?.siteName || "Logo Al-Ghuroba"} 
+                className="w-10 h-10 object-contain" 
+                referrerPolicy="no-referrer" 
+              />
               <div>
                 <span className="block font-display font-bold text-white leading-tight tracking-tight">
                   Al-Ghuroba

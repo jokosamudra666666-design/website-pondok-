@@ -8,8 +8,11 @@ import {
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import { useApp } from "../ui/AppContext";
 import { apiService } from "../../services/api";
+import { ImageUploader } from "../ui/ImageUploader";
 import { INews, IEvent, IGallery, IBanner, IPage, IAdmin, ILog, ICategory, IDonation } from "../../types";
 import { SkeletonTable } from "../ui/Skeleton";
+// @ts-ignore
+import logoImg from "../../assets/images/al_ghuroba_logo_1784517143166.jpg";
 
 type TabID = "dashboard" | "news" | "events" | "gallery" | "banner" | "pages" | "admins" | "settings" | "logs";
 
@@ -281,9 +284,12 @@ export const AdminDashboard: React.FC = () => {
         
         {/* Brand Header */}
         <div className="flex h-16 items-center px-6 border-b border-gray-800 gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gold-custom text-gray-900 flex items-center justify-center font-bold text-sm">
-            AG
-          </div>
+          <img 
+            src={settings?.logo || logoImg} 
+            alt={settings?.siteName || "Logo Al-Ghuroba"} 
+            className="w-8 h-8 object-contain" 
+            referrerPolicy="no-referrer" 
+          />
           <div>
             <span className="block font-display font-extrabold text-white leading-tight">Admin Asrama</span>
             <span className="block text-[9px] font-semibold text-gold-500 uppercase tracking-widest">AL-GHUROBA</span>
@@ -566,13 +572,12 @@ export const AdminDashboard: React.FC = () => {
                             </select>
                           </div>
                           <div className="space-y-1.5">
-                            <label className="text-xs font-bold text-gray-700">URL Gambar Mini / Thumbnail (Unsplash/Imgur)</label>
-                            <input
-                              type="text"
-                              value={editItem.thumbnail}
-                              onChange={(e) => setEditItem({ ...editItem, thumbnail: e.target.value })}
-                              placeholder="Masukkan URL foto..."
-                              className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm outline-hidden focus:ring-2 focus:ring-primary-800/10 focus:border-primary-800"
+                            <ImageUploader
+                              label="Gambar Utama / Thumbnail Berita *"
+                              value={editItem.thumbnail || ""}
+                              onChange={(url) => setEditItem({ ...editItem, thumbnail: url })}
+                              helpText="Upload foto dari komputer atau tempel tautan gambar."
+                              aspectRatio="video"
                             />
                           </div>
                         </div>
@@ -746,11 +751,21 @@ export const AdminDashboard: React.FC = () => {
                         <div className="space-y-1.5">
                           <label className="text-xs font-bold text-gray-700">Deskripsi / Rincian Acara</label>
                           <textarea
-                            rows={4}
+                            rows={3}
                             value={editItem.description}
                             onChange={(e) => setEditItem({ ...editItem, description: e.target.value })}
                             placeholder="Tuliskan keterangan detail mengenai acara..."
                             className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm outline-hidden resize-none"
+                          />
+                        </div>
+
+                        <div className="space-y-1.5">
+                          <ImageUploader
+                            label="Foto / Poster Brosur Acara"
+                            value={editItem.image || ""}
+                            onChange={(url) => setEditItem({ ...editItem, image: url })}
+                            helpText="Upload poster atau gambar kegiatan dari komputer."
+                            aspectRatio="video"
                           />
                         </div>
 
@@ -818,21 +833,24 @@ export const AdminDashboard: React.FC = () => {
                           <label className="text-xs font-bold text-gray-700">Judul Foto *</label>
                           <input type="text" value={editItem.title} onChange={(e) => setEditItem({ ...editItem, title: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" required />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label className="text-xs font-bold text-gray-700">Kategori</label>
-                            <select value={editItem.category} onChange={(e) => setEditItem({ ...editItem, category: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm bg-white">
-                              <option value="Kegiatan">Kegiatan</option>
-                              <option value="Dokumentasi">Dokumentasi</option>
-                              <option value="Wisuda">Wisuda</option>
-                              <option value="Haflah">Haflah</option>
-                              <option value="Seminar">Seminar</option>
-                            </select>
-                          </div>
-                          <div className="space-y-1.5">
-                            <label className="text-xs font-bold text-gray-700">URL Gambar (Unsplash/Imgur) *</label>
-                            <input type="text" value={editItem.image} onChange={(e) => setEditItem({ ...editItem, image: e.target.value })} placeholder="Masukkan tautan gambar..." className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" required />
-                          </div>
+                        <div className="space-y-1.5">
+                          <label className="text-xs font-bold text-gray-700">Kategori</label>
+                          <select value={editItem.category} onChange={(e) => setEditItem({ ...editItem, category: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm bg-white">
+                            <option value="Kegiatan">Kegiatan</option>
+                            <option value="Dokumentasi">Dokumentasi</option>
+                            <option value="Wisuda">Wisuda</option>
+                            <option value="Haflah">Haflah</option>
+                            <option value="Seminar">Seminar</option>
+                          </select>
+                        </div>
+                        <div className="space-y-1.5">
+                          <ImageUploader
+                            label="Foto Galeri *"
+                            value={editItem.image || ""}
+                            onChange={(url) => setEditItem({ ...editItem, image: url })}
+                            helpText="Upload foto dari komputer atau tempel link URL."
+                            aspectRatio="video"
+                          />
                         </div>
                         <div className="space-y-1.5">
                           <label className="text-xs font-bold text-gray-700">Deskripsi Foto</label>
@@ -897,17 +915,20 @@ export const AdminDashboard: React.FC = () => {
                             <input type="text" value={editItem.subtitle} onChange={(e) => setEditItem({ ...editItem, subtitle: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" />
                           </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label className="text-xs font-bold text-gray-700">URL Gambar Banner *</label>
-                            <input type="text" value={editItem.image} onChange={(e) => setEditItem({ ...editItem, image: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" required />
-                          </div>
-                          <div className="space-y-1.5">
-                            <label className="text-xs font-bold text-gray-700">Aksi Tombol (Link & Teks)</label>
-                            <div className="flex gap-2">
-                              <input type="text" placeholder="Teks Tombol" value={editItem.buttonText} onChange={(e) => setEditItem({ ...editItem, buttonText: e.target.value })} className="w-1/2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm" />
-                              <input type="text" placeholder="Tautan / Link" value={editItem.buttonLink} onChange={(e) => setEditItem({ ...editItem, buttonLink: e.target.value })} className="w-1/2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm" />
-                            </div>
+                        <div className="space-y-1.5">
+                          <ImageUploader
+                            label="Gambar Banner Slider *"
+                            value={editItem.image || ""}
+                            onChange={(url) => setEditItem({ ...editItem, image: url })}
+                            helpText="Disarankan rasio lanskap/banner untuk tampilan layar penuh."
+                            aspectRatio="banner"
+                          />
+                        </div>
+                        <div className="space-y-1.5">
+                          <label className="text-xs font-bold text-gray-700">Aksi Tombol (Link & Teks)</label>
+                          <div className="flex gap-2">
+                            <input type="text" placeholder="Teks Tombol" value={editItem.buttonText} onChange={(e) => setEditItem({ ...editItem, buttonText: e.target.value })} className="w-1/2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm" />
+                            <input type="text" placeholder="Tautan / Link" value={editItem.buttonLink} onChange={(e) => setEditItem({ ...editItem, buttonLink: e.target.value })} className="w-1/2 px-4 py-2.5 rounded-xl border border-gray-200 text-sm" />
                           </div>
                         </div>
                         <div className="flex items-center gap-3 pt-4">
@@ -1029,6 +1050,15 @@ export const AdminDashboard: React.FC = () => {
                             <input type="email" value={editItem.email} onChange={(e) => setEditItem({ ...editItem, email: e.target.value })} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm" required />
                           </div>
                         </div>
+                        <div className="space-y-1.5">
+                          <ImageUploader
+                            label="Foto Profil Administrator"
+                            value={editItem.photoURL || ""}
+                            onChange={(url) => setEditItem({ ...editItem, photoURL: url })}
+                            helpText="Upload foto profil admin dari komputer."
+                            aspectRatio="square"
+                          />
+                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-1.5">
                             <label className="text-xs font-bold text-gray-700">Hak Akses / Role *</label>
@@ -1111,7 +1141,25 @@ export const AdminDashboard: React.FC = () => {
                     <p className="text-xs text-gray-500">Sesuaikan data identitas resmi yang tampil pada Header, Kolom Kontak, dan Footer seluruh website.</p>
                   </div>
 
-                  <form onSubmit={handleSettingsSubmit} className="space-y-4">
+                  <form onSubmit={handleSettingsSubmit} className="space-y-6">
+                    {/* Logo & Favicon Uploaders */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-emerald-50/50 p-5 rounded-2xl border border-emerald-100">
+                      <ImageUploader
+                        label="Logo Resmi Pesantren / Website *"
+                        value={settingsForm.logo || ""}
+                        onChange={(url) => setSettingsForm({ ...settingsForm, logo: url })}
+                        helpText="Logo ini akan otomatis langsung terupdate di Navbar, Footer, Login, dan Seluruh Halaman."
+                        aspectRatio="square"
+                      />
+                      <ImageUploader
+                        label="Favicon / Ikon Tab Browser"
+                        value={settingsForm.favicon || ""}
+                        onChange={(url) => setSettingsForm({ ...settingsForm, favicon: url })}
+                        helpText="Ikon kecil pada tab browser (opsional)."
+                        aspectRatio="square"
+                      />
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-xs font-bold text-gray-700">Nama Website Resmi *</label>

@@ -245,22 +245,29 @@ export const ProfileView: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
               {/* Desain Logo Visual Mock */}
               <div className="md:col-span-5 flex flex-col items-center">
-                <div className="w-56 h-56 rounded-3xl bg-emerald-800 border-8 border-gold-custom p-6 shadow-lg flex flex-col justify-between items-center text-white relative">
-                  {/* Decorative Islamic Border */}
-                  <div className="absolute inset-2 border border-white/20 rounded-2xl pointer-events-none" />
-                  
-                  <span className="text-xs font-bold tracking-widest text-gold-custom">AL-GHUROBA</span>
-                  
-                  {/* Symbol (Emblem representing dome and book) */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-14 h-8 rounded-t-full bg-gold-custom opacity-90 shadow-sm" />
-                    <div className="w-16 h-10 border-x-4 border-b-4 border-white flex items-center justify-center font-bold text-lg font-serif">
-                      ۩
-                    </div>
+                {settings?.logo ? (
+                  <div className="w-56 h-56 rounded-3xl bg-white border-4 border-emerald-700/20 p-4 shadow-lg flex items-center justify-center relative group">
+                    <img
+                      src={settings.logo}
+                      alt="Logo Resmi"
+                      className="w-full h-full object-contain"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
-
-                  <span className="text-[10px] font-medium tracking-wide uppercase text-gray-300">LIRBOYO · KEDIRI</span>
-                </div>
+                ) : (
+                  <div className="w-56 h-56 rounded-3xl bg-emerald-800 border-8 border-gold-custom p-6 shadow-lg flex flex-col justify-between items-center text-white relative">
+                    {/* Decorative Islamic Border */}
+                    <div className="absolute inset-2 border border-white/20 rounded-2xl pointer-events-none" />
+                    <span className="text-xs font-bold tracking-widest text-gold-custom">AL-GHUROBA</span>
+                    <div className="flex flex-col items-center">
+                      <div className="w-14 h-8 rounded-t-full bg-gold-custom opacity-90 shadow-sm" />
+                      <div className="w-16 h-10 border-x-4 border-b-4 border-white flex items-center justify-center font-bold text-lg font-serif">
+                        ۩
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-medium tracking-wide uppercase text-gray-300">LIRBOYO · KEDIRI</span>
+                  </div>
+                )}
                 <span className="text-xs text-gray-400 mt-3 font-medium">Lambang Resmi Pesantren Al-Ghuroba</span>
               </div>
 

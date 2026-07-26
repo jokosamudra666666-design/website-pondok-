@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ShieldAlert, LogIn, LayoutDashboard, UserCheck } from "lucide-react";
 import { useApp } from "../ui/AppContext";
+// @ts-ignore
+import logoImg from "../../assets/images/al_ghuroba_logo_1784517143166.jpg";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { admin } = useApp();
+  const { admin, settings } = useApp();
   const location = useLocation();
 
   const menuItems = [
@@ -34,9 +36,12 @@ export const Navbar: React.FC = () => {
           
           {/* Logo Brand */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-amber-500 flex items-center justify-center text-white font-bold text-lg shadow-md border border-white/20 group-hover:scale-105 transition-transform duration-200">
-              AG
-            </div>
+            <img 
+              src={settings?.logo || logoImg} 
+              alt={settings?.siteName || "Logo Al-Ghuroba"} 
+              className="w-10 h-10 object-contain group-hover:scale-105 transition-transform duration-200" 
+              referrerPolicy="no-referrer" 
+            />
             <div>
               <span className="block font-display font-bold text-white leading-tight tracking-tight group-hover:text-amber-400 transition-colors">
                 Al-Ghuroba

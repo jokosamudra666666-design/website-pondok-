@@ -253,10 +253,11 @@ export const apiService = {
   },
 
   // File Upload
-  uploadImage: async (imageUrl?: string) => {
+  uploadImage: async (payload: { fileData?: string; fileName?: string; imageUrl?: string } | string) => {
+    const body = typeof payload === "string" ? { imageUrl: payload } : payload;
     return fetchAPI("/upload", {
       method: "POST",
-      body: JSON.stringify({ imageUrl }),
+      body: JSON.stringify(body),
     });
   }
 };

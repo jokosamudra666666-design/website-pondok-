@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Lock, Mail, ArrowLeft, LogIn } from "lucide-react";
 import { useApp } from "../ui/AppContext";
+// @ts-ignore
+import logoImg from "../../assets/images/al_ghuroba_logo_1784517143166.jpg";
 
 export const LoginView: React.FC = () => {
   const navigate = useNavigate();
-  const { login, admin, showToast } = useApp();
+  const { login, admin, showToast, settings } = useApp();
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,9 +52,12 @@ export const LoginView: React.FC = () => {
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         
         {/* Emblem Brand */}
-        <div className="mx-auto w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary-800 to-green-600 flex items-center justify-center text-white font-extrabold text-xl shadow-md border border-primary-700/20 mb-4">
-          AG
-        </div>
+        <img 
+          src={settings?.logo || logoImg} 
+          alt={settings?.siteName || "Logo Al-Ghuroba"} 
+          className="mx-auto w-16 h-16 object-contain mb-4" 
+          referrerPolicy="no-referrer" 
+        />
         
         <h2 className="text-center text-3xl font-display font-extrabold text-gray-900 tracking-tight leading-none">
           Login Administrator

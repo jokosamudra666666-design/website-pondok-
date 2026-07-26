@@ -9,13 +9,24 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 const DB_FILE = path.join(process.cwd(), "src/db/local_db.json");
+const TMP_DB_FILE = path.join("/tmp", "local_db.json");
+const UPLOADS_DIR = process.env.VERCEL ? path.join("/tmp", "uploads") : path.join(process.cwd(), "public/uploads");
 
-app.use(express.json({ limit: "10mb" }));
+app.use(express.json({ limit: "50mb" }));
+app.use("/uploads", express.static(UPLOADS_DIR));
+if (process.env.VERCEL) {
+  app.use("/uploads", express.static(path.join(process.cwd(), "public/uploads")));
+}
 
 // Helper function to read database
 async function readDB() {
   try {
-    const data = await fs.readFile(DB_FILE, "utf-8");
+    let data;
+    try {
+      data = await fs.readFile(TMP_DB_FILE, "utf-8");
+    } catch {
+      data = await fs.readFile(DB_FILE, "utf-8");
+    }
     return JSON.parse(data);
   } catch (error) {
     console.error("Error reading database:", error);
@@ -26,7 +37,8 @@ async function readDB() {
 // Helper function to write database
 async function writeDB(data: any) {
   try {
-    await fs.writeFile(DB_FILE, JSON.stringify(data, null, 2), "utf-8");
+    const targetFile = process.env.VERCEL ? TMP_DB_FILE : DB_FILE;
+    await fs.writeFile(targetFile, JSON.stringify(data, null, 2), "utf-8");
   } catch (error) {
     console.error("Error writing database:", error);
   }
@@ -633,13 +645,46 @@ app.delete("/api/admins/:uid", requireSuperAdmin, async (req: any, res) => {
   res.json({ success: true, message: "Administrator berhasil dihapus" });
 });
 
-// Mock File/Image Upload (returns high-quality placeholder image links or receives a URL)
+// Mock/Real File/Image Upload (supports uploading base64 files from computer or passing image URLs)
 app.post("/api/upload", requireAdmin, async (req: any, res) => {
-  const { imageUrl } = req.body;
+  const { fileData, fileName, imageUrl } = req.body;
+
+  if (fileData) {
+    try {
+      await fs.mkdir(UPLOADS_DIR, { recursive: true });
+      const matches = fileData.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+      let ext = ".jpg";
+      let buffer: Buffer;
+
+      if (matches && matches.length === 3) {
+        const mime = matches[1];
+        if (mime.includes("png")) ext = ".png";
+        else if (mime.includes("gif")) ext = ".gif";
+        else if (mime.includes("svg")) ext = ".svg";
+        else if (mime.includes("webp")) ext = ".webp";
+        else if (mime.includes("jpeg")) ext = ".jpeg";
+        buffer = Buffer.from(matches[2], "base64");
+      } else {
+        buffer = Buffer.from(fileData.replace(/^data:image\/\w+;base64,/, ""), "base64");
+      }
+
+      const cleanFileName = `img_${Date.now()}_${Math.random().toString(36).substring(2, 7)}${ext}`;
+      const filePath = path.join(UPLOADS_DIR, cleanFileName);
+      await fs.writeFile(filePath, buffer);
+
+      const url = `/uploads/${cleanFileName}`;
+      return res.json({ success: true, message: "Gambar berhasil diunggah dari komputer", url });
+    } catch (err: any) {
+      console.error("Upload error:", err);
+      return res.status(500).json({ success: false, message: "Gagal menyimpan file gambar ke server" });
+    }
+  }
+
   if (imageUrl) {
     return res.json({ success: true, message: "Gambar berhasil ditambahkan", url: imageUrl });
   }
-  // Generates a mock upload url using Unsplash topic-based randomizers so they fit the visual design
+
+  // Generates a mock upload url using Unsplash topic-based randomizers as fallback
   const randomPics = [
     "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
     "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800",
@@ -673,4 +718,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
